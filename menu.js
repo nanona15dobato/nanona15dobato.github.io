@@ -181,7 +181,14 @@ function inmenu() {
             style="color: #0000ff;font-weight:bold;-webkit-text-stroke: 0.5px #ffff1a;text-stroke: 0.5px #0000ff;">15</span><span
             style="color: #ffff1a;">どバと</span></a></div>
       <ul class="menu-links">
-        <li><a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/">JAWP中毒テスト</a></li>
+        <li><a></a></li>
+        <li>
+          <a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/">JAWP中毒テスト ▾</a>
+          <ul class="sub-menu">
+            <li><a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/kaito.html">回答確認</a></li>
+            <li><a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/shusei.html">回答修正</a></li>
+          </ul>
+        </li>
         <li><a href="https://nanona15dobato.github.io/jawp-100-Questions-for-Wikipedians/">100の質問</a></li>
         <li>
           <a>リンク ▾</a>
@@ -206,6 +213,8 @@ function inmenu() {
           style="color: #0000ff;font-weight:bold;-webkit-text-stroke: 0.5px #ffff1a;text-stroke: 0.5px #0000ff;">15</span><span
           style="color: #ffff1a;">どバと</span></a>
       <a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/">JAWP中毒テスト</a>
+      <a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/kaito.html">　回答確認</a>
+      <a href="https://nanona15dobato.github.io/jawp-Wikipediholism-test/shusei.html">　回答修正</a>
       <a href="https://nanona15dobato.github.io/jawp-100-Questions-for-Wikipedians/">100の質問</a>
       <div class="hm-link">
         <a
