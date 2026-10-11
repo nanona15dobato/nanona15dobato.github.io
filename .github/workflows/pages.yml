@@ -26,8 +26,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # ui.nanona.me は Cloudflare の Bot Fight Mode で CI からの取得が止まるので、Pages の元アドレスから取得する
+      # （ページに書かれる CSS・JS の参照先は ui.nanona.me のまま）
       - name: nanona-ui を差し込む
-        run: node scripts/nn-pages.mjs
+        run: node scripts/nn-pages.mjs --ui https://nanona-ui.pages.dev/v1
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

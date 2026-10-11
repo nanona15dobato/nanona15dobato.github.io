@@ -9,7 +9,10 @@
 // あわせて sitemap.xml と .nojekyll を出力する。
 //
 // 使い方：
-//   node scripts/nn-pages.mjs                         … ビルド
+//   node scripts/nn-pages.mjs                         … ビルド（テンプレートは https://ui.nanona.me/v1 から取得）
+//   node scripts/nn-pages.mjs --ui https://nanona-ui.pages.dev/v1
+//                                                     … CI 用。ui.nanona.me は Cloudflare のボット対策で CI からの取得が止まるため、
+//                                                       Pages の元アドレスから取得する（ページが読むのは ui.nanona.me のまま）
 //   node scripts/nn-pages.mjs --ui ../nanona-ui/dist/v1 --serve 4400
 //                                                     … ローカルの nanona-ui で確認（http://localhost:4400/ で配信）
 //
@@ -75,7 +78,10 @@ const stripComment = (s) => s.replace(/^<!--[\s\S]*?-->\s*/, '');
 
 // ローカルの nanona-ui で確認するときは、CSS・JS の参照先もそちらに向ける
 // （--ui がフォルダのときは --serve のサーバーが /__nanona-ui/ で配信する）
-const uiPublicBase = isUrl ? uiSource.replace(/\/$/, '') : '/__nanona-ui';
+// ページに書く CSS・JS の参照先。取得元（--ui）とは別で、既定は常に https://ui.nanona.me/v1。
+// CI では Cloudflare のボット対策を避けるため --ui https://nanona-ui.pages.dev/v1 から取得するが、ページは ui.nanona.me を読む。
+// --ui にフォルダを渡して --serve で確認するときだけ、確認用サーバーの /__nanona-ui/ を読む
+const uiPublicBase = (opt('--ui-public') || (!isUrl && servePort ? '/__nanona-ui' : UI_DEFAULT)).replace(/\/$/, '');
 const rebase = (s) => s.split(UI_DEFAULT).join(uiPublicBase);
 
 const tpl = {
