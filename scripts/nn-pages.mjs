@@ -60,7 +60,13 @@ const uiDir = isUrl ? null : path.resolve(root, uiSource);
 async function loadUi(file) {
   if (isUrl) {
     const res = await fetch(`${uiSource.replace(/\/$/, '')}/${file}`);
-    if (!res.ok) throw new Error(`${file} を取得できません（HTTP ${res.status}）`);
+    if (!res.ok) {
+      // 原因を調べやすいように、Cloudflare などの応答の手がかりを出す
+      const hints = ['server', 'cf-ray', 'cf-mitigated', 'cf-cache-status']
+        .map((h) => res.headers.get(h) && `${h}: ${res.headers.get(h)}`).filter(Boolean).join(', ');
+      const body = (await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 300);
+      throw new Error(`${file} を取得できません（HTTP ${res.status}）${hints ? `\n  ${hints}` : ''}${body ? `\n  ${body}` : ''}`);
+    }
     return res.text();
   }
   return readFile(path.join(uiDir, file), 'utf8');
