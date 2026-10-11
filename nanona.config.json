@@ -1,0 +1,6 @@
+{
+  "extends": "./nanona.site.json",
+  "basePath": "/",
+  "siteUrl": "https://github.nanona.me/",
+  "exclude": ["README.md"]
+}

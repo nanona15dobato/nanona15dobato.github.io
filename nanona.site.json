@@ -1,0 +1,26 @@
+{
+  "title": "GitHub Pages",
+  "titleHref": "/",
+  "navLabel": "GitHub Pages",
+  "nav": [
+    {
+      "label": "中毒テスト",
+      "href": "/jawp-Wikipediholism-test/",
+      "children": [
+        {
+          "label": "回答確認",
+          "href": "/jawp-Wikipediholism-test/kaito.html"
+        },
+        {
+          "label": "回答修正",
+          "href": "/jawp-Wikipediholism-test/shusei.html"
+        }
+      ]
+    },
+    {
+      "label": "100の質問",
+      "href": "/jawp-100-Questions-for-Wikipedians/"
+    }
+  ],
+  "footer": "    <ul class=\"nn-footer__links\">\n      <li><a href=\"/\">GitHub Pages</a></li>\n      <li><a href=\"/license.html\">ライセンス</a></li>\n      <li><a href=\"https://github.com/nanona15dobato\">GitHub</a></li>\n    </ul>\n    <p>ここにあるサイトとファイルは CC BY-SA 4.0 で公開しています。</p>"
+}
